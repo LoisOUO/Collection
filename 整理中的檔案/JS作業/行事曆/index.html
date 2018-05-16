@@ -26,10 +26,15 @@
             padding-left: 0px !important;
         }
 
+        th {
+
+            color: #ff9980;
+        }
+
         td,
         th {
             width: 14%;
-            border: rgb(199, 195, 195) solid !important;
+            border: #cacaca solid !important;
         }
 
         td {
@@ -39,6 +44,21 @@
 
         div li {
             word-break: break-all;
+
+        }
+
+        li div {
+            border-radius: 5px;  /*圓角 */
+        }
+
+        .fas {
+            color: #ff9980;
+
+        }
+
+        #addsomething {
+            background-color: #ff9980;
+            border: none;
         }
 
 
@@ -57,23 +77,26 @@
     <div class="container" style="margin:30px 180px 0px 180px;">
         <div class="row text-center">
             <div class="col-3 col-lg pl-0">
-                <button id="former" type="button" class="btn btn-link">
+                <button id="former" type="button" class="btn btn-link" style="font-size:2em;">
                     <i class="fas fa-angle-double-left"></i>
                 </button>
             </div>
 
-            <div class="col-5 col-lg">
-                <button id="YY" type="button" class="btn btn-link" style="color:#000;" disabled> 某年</button>
-                <button id="MM" type="button" class="btn btn-link" style="color:#000;" disabled></button>
+            <div class="col-5 col-lg text-center">
+                <button id="YY" type="button" class="btn btn-link" style="color:#000;text-decoration:none;font-size: 2em;" disabled></button>
+                <!--年-->
+                <button id="MM" type="button" class="btn btn-link" style="color:#000;text-decoration:none;font-size: 2em;" disabled></button>
+                <!--月-->
             </div>
 
-            <div class="col-3 col-lg text-right">
-                <button id="next" type="button" class="btn btn-link">
+            <div class="col-3 col-lg text-center">
+                <button id="next" type="button" class="btn btn-link " style="font-size: 2em;">
+
                     <i class="fas fa-angle-double-right"></i>
                 </button>
             </div>
 
-            <div class="col-1 col-xs text-right">
+            <div class="col-1 col-xs  text-right pt-3">
                 <!-- Button trigger modal -->
                 <button type="button" id="addsomething" class="btn btn-primary btn-sm text-right" data-toggle="modal" data-target="#modelId">
                     +
@@ -87,13 +110,13 @@
                     <thead>
                         <tr>
 
-                            <th>一</th>
-                            <th>二</th>
-                            <th>三</th>
-                            <th>四</th>
-                            <th>五</th>
-                            <th>六</th>
-                            <th>日</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                            <th>Sum</th>
                         </tr>
                     </thead>
                     <tbody class="text-center" id="DD">
@@ -332,8 +355,8 @@
         //  console.log(a.getDay()); //第一天星期幾
         day = function () {
             $("#DD").text("");
-            $("#YY").text(a.getFullYear() + "年");
-            $("#MM").text((a.getMonth() + 1) + "月"); //月
+            $("#YY").text(a.getFullYear() + "　／");
+            $("#MM").text((a.getMonth() + 1) + ""); //月
             thisMM.setMonth(a.getMonth());
             while (a.getDay() != 1) {
                 a.setDate(a.getDate() - 1);
@@ -347,7 +370,7 @@
                     var key = getkey(a);
                     if (localStorage.getItem(key) != null) {
                         console.log("?");
-                        span.append(getschedule(key).css("color", "#000"));
+                        span.append(getschedule(key).css("color", "#000", ));
                     }
                     if (a.getMonth() == thisMM.getMonth()) { span.css({ 'width': '100%', 'text-align': 'center', 'color': '#111', 'background-color': '#FFF', 'font-size': '1em' }); }
                     if (a.getDate() == now.getDate() && a.getMonth() == now.getMonth()) {
