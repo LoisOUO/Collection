@@ -7,30 +7,43 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
+        .black {
+            font-family: Microsoft JhengHei;
+            color: white;
+            background-color: black;
+            align-content: center;
+        }
+
+        div .btn {
+            border-radius: 55px;
+            height: 50px;
+            width: 50px;
+            margin: 2px 2px 2px 2px;
+        }
     </style>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
 </head>
 
-<body>
-    <div class="container ">
+<body class="black">
+    <div class="container  text-center">
 
-        <div class="row">
-            <div class="col " style="height:150px;">
+        <div class="row ">
+            <div class="col ">
                 <div class="form-group">
                     <label for="">終極密碼</label>
-                    <input type="text" class="form-control" name="" id="inputtext" aria-describedby="helpId" placeholder="" style="width:150px;">
+                    <p>
+                        <input type="text" style="border-radius: 5px;" id="inputtext">
+                    </p>
                     <small id="point" class="form-text text-muted">
                         0-100
                     </small>
                 </div>
-
             </div>
         </div>
-
-        <div class="row" style="margin:2px 2px 2px 2px;">
-            <div class="col-sm">
+        <div class="row text-center" style="margin:0px 2px 4px 2px;">
+            <div class="col-md">
                 <button type="button" class="btn btn-dark">1</button>
                 <button type="button" class="btn btn-dark">2</button>
                 <button type="button" class="btn btn-dark">3</button>
@@ -54,7 +67,7 @@
             <div class="col">
                 <button id="X" type="button" class="btn btn-danger">X</button>
                 <button type="button" class="btn btn-dark">0</button>
-                <button id="Go" type="button" class="btn btn-md btn-success" style="width:34.63px;height:38px;font-size:0.8em;">猜</button>
+                <button id="Go" type="button" class="btn btn-md btn-success">猜</button>
             </div>
         </div>
 
