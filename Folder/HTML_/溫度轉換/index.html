@@ -8,14 +8,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <style>
+    body {
+      background-image: url("./images/125244.jpg");
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
     div {
       font-family: Microsoft JhengHei;
 
     }
 
     .number {
-      height: 38px;
-      width: 38px;
+      height: 50px;
+      width: 50px;
+      font-size: 1.5em !important;
+      margin: 10px 10px 10px 10px;
+      border-radius: 30% !important;
     }
   </style>
   <!-- Bootstrap CSS -->
@@ -24,97 +33,116 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="offset-3"></div>
-      <div class="col">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-          <label class="form-check-label" for="exampleRadios1" style="color:rgb(128, 128, 128);">
-            攝氏轉華氏
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-          <label class="form-check-label" for="exampleRadios2" style="color:rgb(128, 128, 128);">
-            華氏轉攝氏
-          </label>
-        </div>
-      </div>
-    </div>
+  <div class="container mt-5 ">
+
 
     <div class="row">
-      <div class="offset-3"></div>
-      <div class="col-1">
-        <button type="button" class="btn btn-outline-secondary mt-1 number">1</button>
-      </div>
-      <div class="col-1">
-        <button type="button" class="btn btn-outline-secondary mt-1 number">2</button>
-      </div>
-      <div class="col-1">
-        <button type="button" class="btn btn-outline-secondary mt-1 number">3</button>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="offset-3"></div>
-      <div class="col-1">
-        <button type="button" class="btn btn-outline-secondary mt-1 number">4</button>
-      </div>
-      <div class="col-1">
-        <button type="button" class="btn btn-outline-secondary mt-1 number">5</button>
-      </div>
-      <div class="col-1">
-        <button type="button" class="btn btn-outline-secondary mt-1 number">6</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="offset-3"></div>
-      <div class="col-1">
-        <button type="button" class="btn btn-outline-secondary mt-1 number">7</button>
-      </div>
-      <div class="col-1">
-        <button type="button" class="btn btn-outline-secondary mt-1 number">8</button>
-      </div>
-      <div class="col-1">
-        <button type="button" class="btn btn-outline-secondary mt-1 number">9</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="offset-3"></div>
-      <div class="col-1">
-        <button type="button" class="btn btn-outline-secondary mt-1 number">0</button>
-      </div>
-      <div class="col-1">
-        <button type="button" class="btn btn-outline-secondary mt-1 number">.</button>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="offset-3"></div>
-        <div class="col-3">
-          <div class="form-group">
-            <label for=""></label>
-            <input type="text" class="form-control" name="" id="inputtext" aria-describedby="helpId" placeholder="請輸入數字">
+      <div class="col-3">
+        <div class="row">
+          <div class="offset-3"></div>
+          <div class="col-xs">
+            <button type="button" class="btn btn-outline-secondary  number">1</button>
+          </div>
+          <div class="col-xs">
+            <button type="button" class="btn btn-outline-secondary  number">2</button>
+          </div>
+          <div class="col-xs">
+            <button type="button" class="btn btn-outline-secondary  number">3</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="offset-3"></div>
+          <div class="col-xs">
+            <button type="button" class="btn btn-outline-secondary  number">4</button>
+          </div>
+          <div class="col-xs">
+            <button type="button" class="btn btn-outline-secondary  number">5</button>
+          </div>
+          <div class="col-xs">
+            <button type="button" class="btn btn-outline-secondary  number">6</button>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="offset-3 "></div>
+          <div class="col-xs">
+            <button type="button" class="btn btn-outline-secondary  number">7</button>
+          </div>
+          <div class="col-xs">
+            <button type="button" class="btn btn-outline-secondary  number">8</button>
+          </div>
+          <div class="col-xs">
+            <button type="button" class="btn btn-outline-secondary  number">9</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="offset-3"></div>
+          <div class="col-xs">
+            <button type="button" class="btn btn-outline-secondary  number">0</button>
+          </div>
+          <div class="col-xs">
+            <button type="button" class="btn btn-outline-secondary  number">.</button>
           </div>
         </div>
       </div>
-      <div class="row mb-2">
-        <div class="offset-3"></div>
-        <div class="col-3">
-          <button type="button" id="tansbtn" class="btn btn-outline-secondary">轉換</button>
-          <button type="button" id="cleanbth" class="btn  btn-outline-secondary">清除</button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="offset-3"></div>
-        <div class="col-3">
-          <div class="form-group">
-            <input type="text" class="form-control" name="" id="outputtext" aria-describedby="helpId" placeholder="結果" readonly="readonly">
+      <div class="col-5 mt-2">
+        <div class="row">
+
+          <div class="col">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+              <label class="form-check-label" for="exampleRadios1" style="color:rgb(128, 128, 128);">
+                攝氏轉華氏
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+              <label class="form-check-label" for="exampleRadios2" style="color:rgb(128, 128, 128);">
+                華氏轉攝氏
+              </label>
+            </div>
           </div>
         </div>
+
+
+        <div class="row">
+
+          <div class="col-6">
+            <div class="form-group">
+              <label for=""></label>
+              <input type="text" class="form-control" name="" id="inputtext" aria-describedby="helpId" placeholder="請輸入數字">
+            </div>
+          </div>
+        </div>
+        <div class="row mb-2">
+
+          <div class="col-6">
+            <button type="button" id="tansbtn" class="btn btn-outline-secondary">轉換</button>
+            <button type="button" id="cleanbth" class="btn  btn-outline-secondary">清除</button>
+          </div>
+
+
+        </div>
+        <div class="row">
+
+          <div class="col-6">
+            <div class="form-group">
+              <input type="text" class="form-control" name="" id="outputtext" aria-describedby="helpId" placeholder="結果" readonly="readonly">
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </div>
+
+
+
+
+
+
+
+
+
 
   </div>
 
