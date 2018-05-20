@@ -127,7 +127,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal fade text-center" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -155,15 +155,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-3 mt-1">
-                            <label>顏色</label>
-                        </div>
-
-                        <div class="col-7 text-left">
-                            <input type="color" class="form-control" name="" id="input_color" aria-describedby="helpId" placeholder="">
-                        </div>
-                    </div>
                     <div class="row mt-1">
                         <div class="col-3 mt-1">
                             <label for="">事項</label>
@@ -172,6 +163,15 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" name="" id="input_text" aria-describedby="helpId" placeholder="">
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 mt-1">
+                            <label>顏色</label>
+                        </div>
+
+                        <div class="col-7 text-left">
+                            <input type="color" class="form-control" name="" id="input_color" aria-describedby="helpId" placeholder="">
                         </div>
                     </div>
                     <div class="row mt-1">
@@ -186,8 +186,8 @@
                     </div>
                     <div class="row ">
                         <div class="col-5">
-                            <div class="form-group" style="margin:0px 88px 10px 132px;">
-                                <div id="map" style="width:240px;height:240px;"></div>
+                            <div class="form-group" style="margin:0px 10px 10px 10px;">
+                                <div id="map" style="width:450px;height:240px;"></div>
                             </div>
                         </div>
                     </div>
@@ -199,9 +199,8 @@
             </div>
         </div>
     </div>
-
     <!---->
-    <div class="modal fade" id="deletemodalid" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal fade text-center" id="deletemodalid" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -215,7 +214,7 @@
                         <div class="col-3 mt-1">
                             <p>日期</p>
                         </div>
-                        <div class="col-7">
+                        <div class="col-8">
                             <input type="Date" class="form-control" name="" id="delete_input_date" aria-describedby="helpId" placeholder="YYYY/MM/DD">
                         </div>
                     </div>
@@ -223,9 +222,19 @@
                         <div class="col-3 mt-1">
                             <p>時間</p>
                         </div>
-                        <div class="col-7">
+                        <div class="col-8">
                             <div class="form-group">
                                 <input type="time" class="form-control" name="" id="delete_input_time" aria-describedby="helpId" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-3 mt-1">
+                            <label for="">事項</label>
+                        </div>
+                        <div class="col-8">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="" id="delete_input_text" aria-describedby="helpId" placeholder="">
                             </div>
                         </div>
                     </div>
@@ -233,25 +242,15 @@
                         <div class="col-3 mt-1">
                             <label>顏色</label>
                         </div>
-                        <div class="col-7 text-left">
+                        <div class="col-8">
                             <input type="color" class="form-control" name="" id="delete_input_color" aria-describedby="helpId" placeholder="">
-                        </div>
-                    </div>
-                    <div class="row mt-1">
-                        <div class="col-3 mt-1">
-                            <label for="">事項</label>
-                        </div>
-                        <div class="col-7">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="" id="delete_input_text" aria-describedby="helpId" placeholder="">
-                            </div>
                         </div>
                     </div>
                     <div class="row mt-1">
                         <div class="col-3 mt-1">
                             <label for="">地點</label>
                         </div>
-                        <div class="col-7 mt-1">
+                        <div class="col-8">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="" id="delete_address" aria-describedby="helpId" placeholder="" style="font-size:0.5em;">
                             </div>
@@ -259,8 +258,8 @@
                     </div>
                     <div class="row ">
                         <div class="col-5">
-                            <div class="form-group" style="margin:0px 88px 10px 132px;">
-                                <div id="output_map" style="width:240px;height:240px;"></div>
+                            <div class="form-group" style="margin:0px 10px 10px 10px;">
+                                <div id="output_map" style="width:450px;height:240px;"></div>
                             </div>
                         </div>
                     </div>
@@ -333,15 +332,16 @@
                     title: e.latLng.toString()
                 });
                 Y = document.getElementById("input_address").value;
+                console.log(Y);
                 Y = Y.replace(/\(/, "");
                 Y = Y.replace(/\)/, "");
                 X = Y.split(',');
                 //console.log(X[0]);
-
                 geocoder = new google.maps.Geocoder();
                 geocodeLatLng(choosemap);
+
             });
-            
+
             output_map = new google.maps.Map(
                 document.getElementById('output_map'), {
                     center: center,
@@ -417,9 +417,9 @@
                             time: $("#delete_input_time").val(),
                             color: $("#delete_input_color").val(),
                             text: $("#delete_input_text").val(),
-                            address: $("delete_address").val(),
+                            address: $("#delete_address").val(),
                             map: choosemap
-                        
+
                         }
                         $(reserve.schedule.splice([liid[1]], 1, item));
                         localStorage.setItem(liid[0], JSON.stringify(reserve));
@@ -436,7 +436,7 @@
                 if (i.color == '#000000' || item[0] <= 'AA' && item[1] <= 'AA' && item[2] <= 'AA') {
                     div.css('color', '#FFF')
                 }
-               
+
 
                 div.text(i.time + i.text).css({ 'background-color': i.color, 'word-wrap': 'break-word', 'word-break': 'normal' }).addClass("mt-1 ");
                 li.append(div);
@@ -479,7 +479,7 @@
         day = function () {
             $("#DD").text("");
             $("#YY").text(a.getFullYear() + "　／");
-            $("#MM").text((a.getMonth() + 1) + ""); 
+            $("#MM").text((a.getMonth() + 1) + "");
             thisMM.setMonth(a.getMonth());
             while (a.getDay() != 1) {
                 a.setDate(a.getDate() - 1);
