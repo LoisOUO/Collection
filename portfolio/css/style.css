@@ -51,7 +51,7 @@ html {
 
 	box-sizing: border-box;
 
-	font-family: Microsoft JhengHei;
+	
 
 }
 
@@ -81,6 +81,7 @@ body, img,.commentys-form input[type="text"],.commentys-form input[type="email"]
 	-moz-transition: all .2s linear;
 
 	-webkit-transition: all .2s linear;
+	font-family: Microsoft JhengHei;
 
 }
 
