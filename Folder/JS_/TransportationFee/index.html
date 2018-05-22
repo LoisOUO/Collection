@@ -15,18 +15,20 @@
         }
 
         .mapstyle {
-            width: 468px;
+            width: 460px;
             height: 600px;
             float: left;
         }
 
         .directionstyle {
-            width: 300px;
-            height: 500px;
+            width: 350px;
+            height: 650px;
             float: left;
+            border: solid #cfc8c8;
         }
     </style>
     <!-- Bootstrap CSS -->
+
 </head>
 
 <body>
@@ -36,38 +38,36 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title"></h4>
-                        <p class="card-text">計算費用</p>
+                        <p class="card-text">預估交通費用</p>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- <div class="row">
+        <div class="row">
             <div class="col">
                 <div class="input-group mt-2 mb-2">
                     <div class="input-group-prepend">
                         <span class="input-group-text">起點</span>
                     </div>
                     <input id="input_start" type="text" class="form-control" name="" <div class="input-group-append">
-                    <button type="button" name="" id="" class="btn btn-danger" btn-lg btn-block>+</button>
+                    <!-- <button type="button" name="" id="" class="btn btn-danger" btn-lg btn-block>+</button> -->
                 </div>
                 <div class="input-group mb-3 ">
                     <div class="input-group-prepend">
                         <span class="input-group-text">終點</span>
                     </div>
                     <input id="input_end" type="text" class="form-control" name="" <div class="input-group-append">
-                    <div class="input-group-append">
+                    <!-- <div class="input-group-append">
                         <button type="button" name="" id="" class="btn btn-danger" btn-lg btn-block>+</button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
-        </div> -->
+        </div>
         <div class="row">
             <div class="col-5">
                 <div id="map" class="mapstyle"></div>
             </div>
             <div class="col-3">
-
                 <div class="card">
                     <div class="card-body" style="height:194px">
                         <h4 class="card-title">計程車</h4>
@@ -142,6 +142,10 @@
                 document.getElementById("MassTransportation_toll").innerHTML = parseFloat(0);
                 //console.log(i);
                 for (const j of i.legs) {
+
+                    document.getElementById("input_end").value = j.end_address;
+                    document.getElementById("input_start").value = j.start_address;
+
                     //console.log(j);
                     // console.log(j.distance.text.split(' ')[0]); //總公里數
                     KM += j.distance.text.split(' ')[0];
@@ -156,7 +160,7 @@
                     for (const k of j.steps) {
                         //      console.log(k.instructions);
                         if (k.instructions.indexOf("收費路段") > -1) {
-                            console.log(k.distance.text.split(' ')[0]); //需付通行費的公里數
+                            //   console.log(k.distance.text.split(' ')[0]); //需付通行費的公里數
                             L += parseFloat(k.distance.text.split(' ')[0]);
                             // console.log("L" + L);
                             document.getElementById("drive_toll").innerHTML = Math.ceil(parseFloat(L * 1.2));
@@ -169,7 +173,6 @@
             document.getElementById("drive_total").innerHTML += Math.ceil((parseFloat(document.getElementById("drive").innerHTML) + parseFloat(document.getElementById("drive_toll").innerHTML)));
             document.getElementById("taxi_total").innerHTML += Math.ceil((parseFloat(document.getElementById("taxi").innerHTML) + parseFloat(document.getElementById("taxi_toll").innerHTML)));;
             document.getElementById("MassTransportation_total").innerHTML += Math.ceil((parseFloat(document.getElementById("MassTransportation").innerHTML) + parseFloat(document.getElementById("MassTransportation_toll").innerHTML)));
-
         }
 
         var map;
@@ -200,17 +203,16 @@
                 if (point1 != null && point2 != null) {
                     point1 = null;
                     point2 = null;
+                    //console.log(e.latLng.routes[0]);
                 }
                 if (point1 == null) {
                     point1 = e.latLng.lat() + ',' + e.latLng.lng();
-                    console.log(e.latLng.lat() + "," + e.latLng.lng());
+                    // console.log(e.latLng.lat() + "," + e.latLng.lng());
                     return;
                 }
                 if (point2 == null) {
                     point2 = e.latLng.lat() + ',' + e.latLng.lng();
                 }
-                //console.log(point1);
-                //console.log(point2);
 
                 if (point1 != null && point2 != null) {
 
@@ -220,7 +222,7 @@
                         travelMode: 'DRIVING'
                     }, function (response, status) {
                         if (status === 'OK') {
-                            console.log(response)
+                            //console.log(response)
                             TransportationFee(response);
                             directionsDisplay.setDirections(response);
                         }
@@ -235,7 +237,7 @@
                         travelMode: 'TRANSIT'
                     }, function (response, status) {
                         if (status === 'OK') {
-                            console.log(response)
+                            // console.log(response)
                             directionsDisplay1.setDirections(response);
                         }
                         else {
@@ -246,12 +248,6 @@
                 }
             });
         }
-
-        document.getElementById("input_end").value = parseFloat(0);
-        document.getElementById("input_start").value = "222";
-
-
-
 
     </script>
 
