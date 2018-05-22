@@ -7,9 +7,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
+        button.btn {
+            background-color: aliceblue;
+            color: darkcyan;
+        }
+
         div {
             font-family: Microsoft JhengHei;
-
         }
     </style>
     <!-- Bootstrap CSS -->
@@ -18,59 +22,51 @@
 </head>
 
 <body>
-
-    <div class="container" style="margin:10px 180px 0 180px;">
-        <div class="row">
-            <div class="col-2">
-                <button id="start" type="button" class="btn btn-outline-secondary" style="width:100%">開始遊戲</button>
-            </div>
-            <div class="col-2">
-                <button id="look" type="button" class="btn btn-outline-secondary" style="width:100%">看答案</button>
-            </div>
-            <div class="col-2">
-                <button id="giveup" type="button" class="btn btn-outline-secondary" style="width:100%">放棄遊戲</button>
-            </div>
-        </div>
+    <div class="container ">
 
         <div class="row">
-            <div class="col-6">
-                <div class="input-group mb-3 mt-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">輸入數字</span>
-                    </div>
-                    <input type="text" class="form-control" name="" id="inputtext" aria-describedby="helpId">
-                    <div class="input-group-append">
-
-                        <button id="GObtn" type="button" class="btn btn-outline-secondary" style="width:100%">猜</button>
-                    </div>
+            <div class="col " style="height:150px;">
+                <div class="form-group">
+                    <label for="">終極密碼</label>
+                    <input type="text" class="form-control" name="" id="inputtext" aria-describedby="helpId" placeholder="" style="width:150px;">
+                    <small id="point" class="form-text text-muted">
+                        0-100
+                    </small>
                 </div>
 
             </div>
         </div>
-        <div class="row">
-            <div class="col-6">
-                <ul id="list" class="list-group list-style-type">
 
-                    <li class="list-group-item">
-                        <span class="badge badge-info">0A0B</span>
-                        <span class="text" id="N">遊戲歷程</span>
-
-                    </li>
-
-                </ul>
-
+        <div class="row" style="margin:2px 2px 2px 2px;">
+            <div class="col-sm">
+                <button type="button" class="btn btn-dark">1</button>
+                <button type="button" class="btn btn-dark">2</button>
+                <button type="button" class="btn btn-dark">3</button>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="margin:2px 2px 2px 2px;">
             <div class="col">
-                <ul id="look_N">
-
-                </ul>
+                <button type="button" class="btn btn-dark">4</button>
+                <button type="button" class="btn btn-dark">5</button>
+                <button type="button" class="btn btn-dark">6</button>
             </div>
         </div>
+        <div class="row" style="margin:2px 2px 2px 2px;">
+            <div class="col">
+                <button type="button" class="btn btn-dark">7</button>
+                <button type="button" class="btn btn-dark">8</button>
+                <button type="button" class="btn btn-dark">9</button>
+            </div>
+        </div>
+        <div class="row" style="margin:2px 2px 2px 2px;">
+            <div class="col">
+                <button id="X" type="button" class="btn btn-danger">X</button>
+                <button type="button" class="btn btn-dark">0</button>
+                <button id="Go" type="button" class="btn btn-md btn-success" style="width:34.63px;height:38px;font-size:0.8em;">猜</button>
+            </div>
+        </div>
+
     </div>
-
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -79,115 +75,54 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-
-
     <script>
-        var Ran = function () {
-            var n = Math.floor(Math.random() * 10);
+        var n = "";
+        var start = function () {
+            n = Math.floor(Math.random() * 100);
             return n;
         };
-        var Num = "";
-        var startbtn = document.getElementById("start");
-        startbtn.onclick = function () {
-            Num = "";
-            for (var i = 0; i < 4;) {
-                var number = Ran();
-                if (Num.indexOf(number) == -1) {
-                    //Num[i] = number;
-                    Num += number;
-                    i++;
-                };
-            };
-            console.log("~" + Num);
-            return Num;
-        };
-
-
-
-        var Comparison = function (numbers, solution) {
-            var N = numbers;
-            var S = solution;
-            var A = 0;
-            var B = 0;
-            for (var i = 0; i < 4; i++) {
-                if (S[i] == N[i]) { A++; }
-                else {
-                    for (var j = 0; j < 4; j++) {
-                        if (S[i] == N[j]) { B++; }
-                    }
-                }
+        console.log(start());
+        var input = "";
+        var buttons = document.getElementsByTagName("button");
+        for (var i = 0; i < buttons.length; i++) {
+            var button = buttons[i];
+            button.onclick = function () {
+                var btn = event.srcElement;
+                // document.getElementById("inputtext").value += btn.innerText; //id!!!
+                input += btn.innerText;
+                document.getElementById("inputtext").value = input;
             }
-
-            return A + "A" + B + "B";
         }
-
-        var look = document.getElementById("look");
-        look.onclick = function () {
-            var look_ul = document.querySelector("#look_N");
-            var look_li = document.createElement("li");
-            look_li.innerText = "答案:" + Num;
-            look_ul.appendChild(look_li);
-        }
-
-        var giveup = document.getElementById("giveup");
-        giveup.onclick = function () {
-            var look_ul = document.querySelector("#look_N");
-            var look_li = document.createElement("li");
-            look_li.innerText = "答案:" + Num + "放棄真可惜!";
-            look_ul.appendChild(look_li);
-            Num = "";
-            console.log(Num);
-
-        }
-
-
-        var btnGO = document.getElementById("GObtn");
-        btnGO.onclick = function () {
-            var inputNum = document.getElementById("inputtext").value;
-            console.log(inputNum);
-            var list = document.querySelector("#list");
-            var li = document.createElement("li");
-            li.className = "list-group-item";
-
-            var span = document.createElement("span");
-            var Nspan = document.createElement("span");
-            Nspan.className = "text";
-            Nspan.innerText = inputNum;
-            span.className = "badge badge-info";
-            //  span.innerText = "0A0B";
-            span.innerText = Comparison(inputNum, Num);
-
-            li.appendChild(span);
-            li.appendChild(Nspan);
-            list.appendChild(li);
-            if (span.innerText == "4A0B") { alert("全部答對!!"); }
-
-        }
-
-
-
-
-
-
-/*
-        var ul = document.querySelector("ul");
-        var btnGO = document.getElementById("GO");
-        btnGo.onclick = function () {
-            var btn = event.srcElement;
-            var number = document.getElementById("input").value;
-
-            var list = document.createElement("li");
-            list.innerText = (document.getElementById("input"));
-        }
-
-        table.appendChild(list);*/
-
-
-
-
-
-
+        var delete_01 = document.getElementById("X");
+        delete_01.onclick = function () {
+            input = "";
+            document.getElementById("inputtext").value = input;
+            console.log(input);
+        };
+        var max = 100;
+        var min = 1;
+        var Go = document.getElementById("Go");
+        Go.onclick = function () {
+            console.log(input);
+            if (n == input) {
+                document.getElementById("point").innerText = "答對嘍";
+            }
+            else if (n < input) {
+                if (max > input) {
+                    max = input;
+                }
+                document.getElementById("point").innerText = min + "~" + max + "再猜小一點";
+            }
+            else if (n > input) {
+                if (min < input) {
+                    min = input;
+                }
+                document.getElementById("point").innerText = min + "~" + max + "再大一點";
+            }
+            input = "";
+        };
     </script>
+
 
 
 </body>
