@@ -321,7 +321,7 @@
                     marker.setMap(null);
                     marker = null;
                 }
-                document.getElementById("input_address").value = e.latLng;
+                $("#input_address").val(e.latLng);
                 choosemap = e.latLng;
                 console.log("0409");
                 console.log(e.latLng);
@@ -331,7 +331,7 @@
                     map: map,
                     title: e.latLng.toString()
                 });
-                Y = document.getElementById("input_address").value;
+                Y = $("#input_address").value;
                 console.log(Y);
                 Y = Y.replace(/\(/, "");
                 Y = Y.replace(/\)/, "");
