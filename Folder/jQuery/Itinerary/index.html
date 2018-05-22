@@ -331,12 +331,7 @@
                     map: map,
                     title: e.latLng.toString()
                 });
-                Y = $("#input_address").value;
-                console.log(Y);
-                Y = Y.replace(/\(/, "");
-                Y = Y.replace(/\)/, "");
-                X = Y.split(',');
-                //console.log(X[0]);
+
                 geocoder = new google.maps.Geocoder();
                 geocodeLatLng(choosemap);
 
