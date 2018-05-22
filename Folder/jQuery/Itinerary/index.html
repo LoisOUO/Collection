@@ -405,6 +405,7 @@
                         $(reserve.schedule.splice([liid[1]], 1));
                         localStorage.removeItem(liid[0]);
                         localStorage.setItem(liid[0], JSON.stringify(reserve));
+                        location = location; //更新頁面
                     })
                     $("#revise").click(function () {
                         let reserve = JSON.parse(localStorage.getItem(liid[0]));
@@ -418,6 +419,7 @@
                         }
                         $(reserve.schedule.splice([liid[1]], 1, item));
                         localStorage.setItem(liid[0], JSON.stringify(reserve));
+                        location = location; //更新頁面
                     })
                 })
                 //如果背景顏色過深，自動轉換文字顏色
@@ -461,6 +463,7 @@
                 storage.schedule.push(item);
                 localStorage.setItem(date, JSON.stringify(storage));
             }
+            location = location; //更新頁面
         })
         var a = new Date();
         var now = new Date();
